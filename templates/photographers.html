@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographers | PhotoBook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <div class="logo">PhotoBook</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/photographers" class="active">Photographers</a></li>
+            <li><a href="/bookings">Bookings</a></li>
+            <li><a href="/availability">Availability</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/admin/login">Admin Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Available Photographers</h1>
+        <p>Choose the best photographer for your special moments</p>
+    </section>
+
+    <!-- Photographer List -->
+    <section class="photographer-list">
+
+        <!-- CARD 1 -->
+        <div class="photographer-card">
+            <img src="https://via.placeholder.com/250x180" alt="John Doe, Wedding Photographer">
+            <h3>John Doe</h3>
+            <p>Wedding Photographer</p>
+            <p class="price">₹15,000 / day</p>
+            <a href="/bookings" class="btn primary-btn">Book Now</a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="photographer-card">
+            <img src="https://via.placeholder.com/250x180" alt="Sarah Smith, Event & Corporate Photographer">
+            <h3>Sarah Smith</h3>
+            <p>Event & Corporate</p>
+            <p class="price">₹10,000 / day</p>
+            <a href="/bookings" class="btn primary-btn">Book Now</a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="photographer-card">
+            <img src="https://via.placeholder.com/250x180" alt="Rahul Verma, Portrait & Fashion Photographer">
+            <h3>Rahul Verma</h3>
+            <p>Portrait & Fashion</p>
+            <p class="price">₹8,000 / day</p>
+            <a href="/bookings" class="btn primary-btn">Book Now</a>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

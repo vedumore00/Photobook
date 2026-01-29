@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Availability | PhotoBook</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">PhotoBook</div>
+  <ul class="nav-links">
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+    <li><a href="{{ url_for('photographers') }}">Photographers</a></li>
+    <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+    <li><a href="{{ url_for('availability') }}">Availability</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    <li><a href="{{ url_for('signup') }}">Signup</a></li>
+  </ul>
+</nav>
+
+<main class="main-content">
+
+  <section class="page-header">
+    <h1>Check Availability</h1>
+    <p>Select a date to see unavailable time slots</p>
+  </section>
+
+  <section class="availability-box">
+
+    <form method="POST" class="date-select">
+      <label>Select Date</label>
+      <input type="date" name="date" required>
+      <button type="submit" class="primary-btn">Check</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% if unavailable_slots %}
+  <div class="results-box">
+    <h3>Unavailable Time Slots</h3>
+    <ul>
+      {% for slot in unavailable_slots %}
+        <li>{{ slot }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

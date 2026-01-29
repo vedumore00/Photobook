@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session | PhotoBook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">PhotoBook</div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('photographers') }}">Photographers</a></li>
+        <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+        <li><a href="{{ url_for('availability') }}">Availability</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('signup') }}">Signup</a></li>
+        <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+    </ul>
+</nav>
+
+<main class="main-content">
+    <div class="auth-container">
+        <h2>Book Your Photographer</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Fill in the details below to request a session.</p>
+
+        <!-- Form action fixed -->
+        <form action="{{ url_for('bookings') }}" method="POST">
+            <label>Full Name</label>
+            <input type="text" name="name" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Event Type</label>
+            <select name="type" class="auth-select" required>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate</option>
+                <option value="portrait">Portrait/Fashion</option>
+                <option value="event">General Event</option>
+            </select>
+
+            <label>Preferred Date</label>
+            <input type="date" name="date" required>
+
+            <label>Preferred Time</label>
+            <input type="time" name="time" required>
+
+            <button type="submit" class="primary-btn auth-btn">
+                Confirm Booking Request
+            </button>
+        </form>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+</body>
+</html>
+

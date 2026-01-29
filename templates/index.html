@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoBook | Photographer Booking Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">PhotoBook</div>
+  <ul class="nav-links">
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+    <li><a href="{{ url_for('photographers') }}">Photographers</a></li>
+    <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+    <li><a href="{{ url_for('availability') }}">Availability</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    <li><a href="{{ url_for('signup') }}">Signup</a></li>
+    <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+  </ul>
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Book Professional Photographers Easily</h1>
+        <p>Effortless event and portrait scheduling powered by AWS Cloud.</p>
+        <div class="hero-buttons">
+            <a href="/signup" class="btn primary-btn">Get Started</a>
+            <a href="/photographers" class="btn secondary-btn">View Photographers</a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <h2>Why Choose PhotoBook?</h2>
+        <div class="feature-cards">
+
+            <div class="card">
+                <h3>Easy Booking</h3>
+                <p>Book photographers in just a few clicks with real-time availability.</p>
+            </div>
+
+            <div class="card">
+                <h3>Professional Photographers</h3>
+                <p>Choose from verified photographers for weddings, events, and portraits.</p>
+            </div>
+
+            <div class="card">
+                <h3>AWS Powered</h3>
+                <p>Secure, scalable platform built using AWS DynamoDB and EC2.</p>
+            </div>
+
+        </div>
+    </section>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>

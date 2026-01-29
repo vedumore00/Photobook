@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Access | PhotoBook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">PhotoBook Admin</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+      <li><a href="{{ url_for('availability') }}">Availability</a></li>
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+      <li><a href="{{ url_for('signup') }}">Signup</a></li>
+      <li><a href="{{ url_for('admin_login') }}">Admin</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main-content">
+  <section class="admin-auth">
+    <div class="auth-container">
+      <div class="auth-box">
+        <h2>Admin Login</h2>
+        <form action="{{ url_for('admin_login') }}" method="POST">
+          <label for="username">Admin Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required autocomplete="username">
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+
+          <button type="submit">Login</button>
+        </form>
+
+        <!-- Signup link removed because no route exists -->
+        <p>Need an admin account? Contact super admin.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+

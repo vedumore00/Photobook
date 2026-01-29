@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | PhotoBook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">PhotoBook Admin</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <section class="page-header">
+        <h1>Admin Dashboard</h1>
+        <p>Total Bookings: <strong>{{ total_bookings }}</strong></p>
+    </section>
+
+    <section class="dashboard-table">
+        {% if bookings %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking["name"] }}</td>
+                    <td>{{ booking["email"] }}</td>
+                    <td>{{ booking["type"] }}</td>
+                    <td>{{ booking["date"] }}</td>
+                    <td>{{ booking["time"] }}</td>
+                    <td>
+                        <span class="status-badge">{{ booking["status"] }}</span>
+                    </td>
+                    <td>
+                        <form method="POST" action="/admin/delete_booking/{{ booking['id'] }}">
+                            <button class="danger-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align:center;">No bookings found.</p>
+        {% endif %}
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+

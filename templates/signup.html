@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | PhotoBook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+        <div class="logo">PhotoBook</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/photographers">Photographers</a></li>
+            <li><a href="/bookings">Bookings</a></li>
+            <li><a href="/availability">Availability</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup" class="active">Signup</a></li>
+            <li><a href="/admin/login">Admin Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <section class="auth-section">
+        <div class="auth-container">
+            <h2>Create Your Account</h2>
+
+            <form action="{{ url_for('signup') }}" method="POST">
+  <input type="text" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" required>
+
+  <button type="submit" class="primary-btn auth-btn">
+    Signup
+  </button>
+</form>
+
+<p class="auth-text">
+  Already have an account?
+  <a href="{{ url_for('login') }}">Login here</a>
+</p>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 <span>PhotoBook</span>. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
